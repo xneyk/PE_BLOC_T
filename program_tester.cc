@@ -34,18 +34,23 @@ int main(int argc, char **argv) {
          // java execution
          std::cout << "[program_tester] getting JAVA program data from " << argv[1] << std::endl;
          
-         sprintf(exec_cmd, "java linear_search %d %d < %s > java_time_%s",set_lenght, length, argv[1], argv[1]);
+         sprintf(exec_cmd, "java linear_search %d %d < %s > java_time_%s", set_lenght, length, argv[1], argv[1]);
          system(exec_cmd);
 
          std::cout << "[program_tester] JAVA program data from " << argv[1] << " obtained" << std::endl;
       } else if (language == "python") {
          // python execution
-         // needs to be implemented!
+         std::cout << "[program_tester] getting PYTHON program data from " << argv[1] << std::endl;
+
+         sprintf(exec_cmd, "python3 linear_search.py %d %d < %s > py_time_%s", set_lenght, length, argv[1], argv[1]);
+         system(exec_cmd);
+         
+         std::cout << "[program_tester] PYTHON program data from " << argv[1] << " obtained" << std::endl;
       } else if (language == "c++") {
          // c++ execution
          std::cout << "[program_tester] getting C++ program data from " << argv[1] << std::endl;
 
-         sprintf(exec_cmd, "./linear_search.x %d %d < %s > c++_time_%s",set_lenght, length, argv[1], argv[1]);
+         sprintf(exec_cmd, "./linear_search.x %d %d < %s > c++_time_%s", set_lenght, length, argv[1], argv[1]);
          system(exec_cmd);
          
          std::cout << "[program_tester] C++ program data from " << argv[1] << " obtained" << std::endl;
