@@ -1,4 +1,4 @@
-all: data_generator.x linear_search.x program_tester.x linear_search.class
+all: data_generator.x linear_search.x program_tester.x
 
 C_FLAGS = -std=c++11
 
@@ -12,4 +12,4 @@ program_tester.x: program_tester.cc
 	g++ -o program_tester.x program_tester.cc $(C_FLAGS)
 
 clean:
-	rm *.x *.class
+	rm -f *.x
