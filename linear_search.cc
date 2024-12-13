@@ -27,6 +27,7 @@ int main(int argc, char **argv) {
    
    int set_length = atoi(argv[1]);
    // mark start time
+   std::cout << "N TIME" << std::endl; // data set header
    for (int i = 0; i < set_length; ++i) {
       int x, n;
       std::cin >> x >> n; // catch number to find.
@@ -40,6 +41,6 @@ int main(int argc, char **argv) {
       // calc delta.
       auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
       // print delta on stdout.
-      std::cout << duration.count() << std::endl; // time in nanoseconds
+      std::cout << n << ' ' << duration.count() << std::endl; // time in nanoseconds
    }
 }

@@ -31,7 +31,7 @@ def main():
       set_length = int(sys.argv[1])
    except ValueError:
       usage()
-
+   print(f"N TIME") # data set header
    for _ in range(set_length):
       line = input().strip()  # Read the entire line
       x, n, v = read_vector(line)
@@ -42,7 +42,7 @@ def main():
 
       # calc delta and print elapsed time
       duration = end - start
-      print(f"{duration}") # time in nanoseconds
+      print(f"{n} {duration}") # time in nanoseconds
 
 if __name__ == "__main__":
    main()
