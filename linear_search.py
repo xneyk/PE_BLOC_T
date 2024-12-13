@@ -11,7 +11,7 @@ def read_vector(line):
    parts = list(map(int, line.split()))
    x = parts[0]   # First value is the number to find
    n = parts[1]   # Second value is the length of the vector.
-   if len(parts) != n + 1:
+   if len(parts) != n + 2:
       print(f"Error: Expected {n + 1} values, got {len(parts)}", file=sys.stderr)
       sys.exit(1)
    v = parts[2:]  # Remaining values are the vector
