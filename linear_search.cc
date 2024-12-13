@@ -41,6 +41,6 @@ int main(int argc, char **argv) {
       // calc delta.
       auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
       // print delta on stdout.
-      std::cout << duration.count() << " ns elapsed" << std::endl;
+      std::cout << duration.count() << std::endl; // time in nanoseconds
    }
 }

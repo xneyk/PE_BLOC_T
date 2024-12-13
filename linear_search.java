@@ -26,7 +26,7 @@ public class linear_search {
          long delta = end - start;
          // print delta on stdout.
 
-         System.out.println(delta + " ns elapsed");
+         System.out.println(delta); // time in nanoseconds
       }
 
       scanner.close();

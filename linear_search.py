@@ -42,7 +42,7 @@ def main():
 
       # calc delta and print elapsed time
       duration = end - start
-      print(f"{duration} ns elapsed")
+      print(f"{duration}") # time in nanoseconds
 
 if __name__ == "__main__":
    main()
