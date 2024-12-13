@@ -8,9 +8,6 @@ data_generator.x: data_generator.cc
 linear_search.x: linear_search.cc
 	g++ -o linear_search.x linear_search.cc $(C_FLAGS)
 
-linear_search.class: linear_search.java
-	javac linear_search.java
-
 program_tester.x: program_tester.cc
 	g++ -o program_tester.x program_tester.cc $(C_FLAGS)
 

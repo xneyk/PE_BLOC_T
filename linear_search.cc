@@ -3,9 +3,9 @@
 #include <chrono>
 
 void usage() {
-   std::cerr << "usage: ./linear_search <set_length> <length>" << std::endl;
-   std::cerr << "reads from stdin <set_lenght> rows formated as: x array[<length>]" << std::endl;
-   std::cerr << "where \"x\" is a value in the array and \"array\" is an array with lenght <lenght>" << std::endl;
+   std::cerr << "usage: ./linear_search <set_length>" << std::endl;
+   std::cerr << "reads from stdin <set_lenght> rows formated as: x n array[n]" << std::endl;
+   std::cerr << "where \"x\" is a value in the array and \"array\" is an array with lenght n" << std::endl;
    exit(1);
 }
 
@@ -23,15 +23,14 @@ int linear_search(int x, const std::vector<int> &v) {
 }
 
 int main(int argc, char **argv) {
-   if (argc != 3) usage();
+   if (argc != 2) usage();
    
    int set_length = atoi(argv[1]);
-   int array_length = atoi(argv[2]);
    // mark start time
    for (int i = 0; i < set_length; ++i) {
-      int x;
-      std::cin >> x; // catch number to find.
-      std::vector<int> v(array_length);
+      int x, n;
+      std::cin >> x >> n; // catch number to find.
+      std::vector<int> v(n);
       read_vector(v);
       
       auto start = std::chrono::high_resolution_clock::now();

@@ -1,14 +1,17 @@
 #!/bin/bash
+
+read -p "What size do you want the data set to be? " set_length
+
 make
 mkdir result
 
-for i in {1..16}; do
-   echo "[bash] starting round $i"
-   ./data_generator.x 64 $((2 ** i)) > 2_$((i)).out
-   ./program_tester.x 2_$((i)).out 64 $((2 ** i))
-   rm 2_$((i)).out
-   mv *.out ./result
-   echo "[bash] finished round $i"
-done
+echo "[bash] Generating the input data..."
+./data_generator.x $set_length > data.inp
+echo "[bash] Input data generated succesfully!"
+echo "[bash] Starting executions to collect results"
+./program_tester.x data.inp $set_length
+echo "[bash] Results colleted succesfully!"
+rm data.inp
+mv *.out ./result
 
 make clean

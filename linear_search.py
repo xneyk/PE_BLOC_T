@@ -2,19 +2,20 @@ import sys
 import time
 
 def usage():
-   print("usage: python linear_search.py <set_length> <array_length>", file=sys.stderr)
-   print("reads from stdin <set_length> rows formatted as: x array[<length>]", file=sys.stderr)
-   print("where 'x' is a value in the array and 'array' is an array with length <length>", file=sys.stderr)
+   print("usage: python linear_search.py <set_length>", file=sys.stderr)
+   print("reads from stdin <set_length> rows formatted as: x n array[n]", file=sys.stderr)
+   print("where 'x' is a value in the array and 'array' is an array with length 'n'", file=sys.stderr)
    sys.exit(1)
 
-def read_vector(line, length):
+def read_vector(line):
    parts = list(map(int, line.split()))
-   if len(parts) != length + 1:
-      print(f"Error: Expected {length + 1} values, got {len(parts)}", file=sys.stderr)
+   x = parts[0]   # First value is the number to find
+   n = parts[1]   # Second value is the length of the vector.
+   if len(parts) != n + 1:
+      print(f"Error: Expected {n + 1} values, got {len(parts)}", file=sys.stderr)
       sys.exit(1)
-   x = parts[0]  # First value is the number to find
-   v = parts[1:]  # Remaining values are the vector
-   return x, v
+   v = parts[2:]  # Remaining values are the vector
+   return x, n, v
 
 def linear_search(x, v):
    for i, val in enumerate(v):
@@ -23,18 +24,17 @@ def linear_search(x, v):
    return -1  # never reached because precondition: x exists in v.
 
 def main():
-   if len(sys.argv) != 3:
+   if len(sys.argv) != 2:
       usage()
 
    try:
       set_length = int(sys.argv[1])
-      array_length = int(sys.argv[2])
    except ValueError:
       usage()
 
    for _ in range(set_length):
       line = input().strip()  # Read the entire line
-      x, v = read_vector(line, array_length)
+      x, n, v = read_vector(line)
       
       start = time.perf_counter_ns()  # mark start time
       linear_search(x, v)
